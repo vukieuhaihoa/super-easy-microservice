@@ -1,0 +1,18 @@
+.list_comments {
+  display: inline-block;
+
+  li {
+    margin-left: 30px;
+    margin-top: 8px;
+    list-style-type: none;
+  }
+}
+.root {
+  i {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+
+    color: blueviolet;
+  }
+}

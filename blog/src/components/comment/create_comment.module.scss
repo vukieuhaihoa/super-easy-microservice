@@ -1,0 +1,47 @@
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+
+.comment_create {
+
+  border: 2px solid #11998e;
+  border-radius: 5px;
+  padding: 10px;
+  width: 90%;
+  margin: 0 auto;
+  &_container {
+    .form_group {
+      display: block;
+      padding: 10px;
+
+      input {
+        font-family: inherit;
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid $gray;
+        outline: 0;
+        font-size: 15px;
+        padding: 7px 0;
+        background: transparent;
+        transition: border-color 0.2s;
+      }
+
+      button {
+        width: 50px;
+        height: 30px;
+        border: none;
+        outline: none;
+        background: #486dd2;
+        color: #fff;
+        font-size: 15px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.4);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+    }
+  }
+}

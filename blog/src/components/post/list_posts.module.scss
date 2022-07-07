@@ -1,0 +1,33 @@
+.list_posts {
+  margin: 0 auto;
+  margin-top: 20px;
+
+  width: 800px;
+  background-color: beige;
+
+  h2 {
+    text-align: center;
+  }
+  .post_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px;
+    .card {
+      background-color: white;
+
+      border-radius: 10px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+      width: 200px;
+      padding-bottom: 5px;
+      p {
+        padding: 15px;
+      }
+    }
+  }
+}
