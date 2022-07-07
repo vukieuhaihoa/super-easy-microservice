@@ -4,7 +4,7 @@ Build microservice from scratch with nodejs and nextjs
 
 ## This module include 3 folder:
 
-- client: Front end
+- blog: Front end
 - posts: posts service
 - comments: comments service
 

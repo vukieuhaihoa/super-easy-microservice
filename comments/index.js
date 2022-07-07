@@ -62,5 +62,5 @@ app.get("/posts/:post_id/comments", (req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log('app is running on port', PORT);
+  console.log('comments-service is running on port', PORT);
 })

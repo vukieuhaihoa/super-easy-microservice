@@ -49,5 +49,5 @@ app.get("/posts", (req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log('app is running on port', PORT);
+  console.log('posts-service is running on port', PORT);
 })
