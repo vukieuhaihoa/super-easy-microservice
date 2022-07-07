@@ -1,0 +1,21 @@
+{
+  "name": "comments",
+  "version": "1.0.0",
+  "description": "comments service",
+  "main": "index.js",
+  "author": "Hai Hoa",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ."
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "http-status": "^1.5.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.19"
+  }
+}
