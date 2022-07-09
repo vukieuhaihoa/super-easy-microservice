@@ -1,12 +1,15 @@
 # Implement microservice with NodeJS and NextJS
 
-Build microservice from scratch with nodejs and nextjs
+> Build microservice from scratch with nodejs and nextjs
 
 ## This module include 3 folder:
 
 - blog: Front end
 - posts: posts service
 - comments: comments service
+- query: query service
+- moderation: moderation service
+- event-bus: event bus service
 
 ## How to run ?
 
@@ -29,7 +32,23 @@ yarn dev
 3. Run client(UI)
 
 ```
-cd client
+cd blog
+yarn
+yarn dev
+```
+
+4. Run Query service
+
+```
+cd query
+yarn
+yarn dev
+```
+
+5. Run Event bus service
+
+```
+cd event-bus
 yarn
 yarn dev
 ```
