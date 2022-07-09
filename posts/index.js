@@ -3,7 +3,9 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import crypto from 'crypto';
 import httpStatusCode from 'http-status';
-import cors from 'cors'
+import cors from 'cors';
+import axios from 'axios';
+
 const app = express()
 
 // read data from req => parser to req.body
@@ -28,13 +30,25 @@ app.get("/ping", (req, res) => {
   })
 })
 
-app.post("/posts", (req, res) => {
+const URL_EVENTBUS = 'http://localhost:4000/events';
+
+app.post("/posts", async (req, res) => {
   const id = crypto.randomUUID()
   const { content } = req.body
   posts[id] = {
     id,
     content,
   }
+
+  // publish event
+  await axios.post(URL_EVENTBUS, {
+    type: 'PostCreated',
+    data: {
+      id,
+      content
+    }
+  })
+
   res.status(httpStatusCode.CREATED).json({
     "code": httpStatusCode.CREATED,
     "data": null
@@ -45,6 +59,15 @@ app.get("/posts", (req, res) => {
   res.status(httpStatusCode.OK).json({
     "code": httpStatusCode.OK,
     "data": posts
+  })
+})
+
+app.post("/events", (req, res) => {
+  const data = req.body;
+  console.log("post service received event ", data.type);
+  res.status(httpStatusCode.OK).json({
+    "code": httpStatusCode.OK,
+    "data": true
   })
 })
 

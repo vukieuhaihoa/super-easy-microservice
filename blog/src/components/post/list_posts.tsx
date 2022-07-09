@@ -4,7 +4,7 @@ import CreateComment from '../comment/create_comment';
 import ListComments from '../comment/list_comments';
 import styles from './list_posts.module.scss';
 
-const URL = 'http://localhost:3001/posts';
+const URL_QUERY_SERVICE = 'http://localhost:3003/posts';
 
 type Post = {
   id: string;
@@ -15,7 +15,7 @@ const ListPost = () => {
   const [posts, setPosts] = useState({});
 
   const fetchData = async () => {
-    const res = await axios.get(URL);
+    const res = await axios.get(URL_QUERY_SERVICE);
     // console.log(res);
     setPosts(res.data.data);
   };
@@ -24,7 +24,7 @@ const ListPost = () => {
     return (
       <div key={index} className={styles.card}>
         <p>{post.content}</p>
-        <ListComments post_id={post.id} />
+        <ListComments comments={post.comments} />
         <CreateComment post_id={post.id} />
       </div>
     );

@@ -22,13 +22,16 @@ const PORT = process.env.PORT || 4000
 const URL_POST_SERVICE = 'http://localhost:3001/events';
 const URL_COMMENT_SERVICE = 'http://localhost:3002/events';
 const URL_QUERY_SERVICE = 'http://localhost:3003/events';
+const URL_MODERATION_SERVICE = 'http://localhost:3004/events';
 
-app.post('/events', (req, res) => {
+app.post('/events', async (req, res) => {
   const event = req.body
 
-  axios.post(URL_POST_SERVICE, event)
-  axios.post(URL_COMMENT_SERVICE, event)
-  axios.post(URL_QUERY_SERVICE, event)
+  await axios.post(URL_POST_SERVICE, event)
+  await axios.post(URL_COMMENT_SERVICE, event)
+  await axios.post(URL_QUERY_SERVICE, event)
+  await axios.post(URL_MODERATION_SERVICE, event)
+
 
   res.status(httpStatusCode.OK).json({
     code: httpStatusCode.OK,

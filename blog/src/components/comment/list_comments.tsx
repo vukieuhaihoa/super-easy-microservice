@@ -4,22 +4,31 @@ import styles from './list_comments.module.scss';
 
 const URL = 'http://localhost:3002/posts/';
 
-const ListComments = ({ post_id }: { post_id: string }) => {
-  const [comments, setComments] = useState({});
+const ListComments = ({ comments }: { comments: Object }) => {
+  // const [comments, setComments] = useState({});
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const real_url = URL + post_id + '/comments';
-      const res = await axios.get(real_url);
-      setComments(res.data.data);
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const real_url = URL + post_id + '/comments';
+  //     const res = await axios.get(real_url);
+  //     setComments(res.data.data);
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   const renderListComments = Object.values(comments).map(
     (comment: any, index) => {
-      return <li key={index + 'comment'}>{comment.content}</li>;
+      let content = comment.content;
+      if (comment.status === 'rejected') {
+        content = 'This comment rejected';
+      }
+
+      if (comment.status === 'pending') {
+        content = 'This comment is waiting to moderation';
+      }
+
+      return <li key={index + 'comment'}>{content}</li>;
     }
   );
 
