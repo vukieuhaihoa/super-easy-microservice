@@ -15,6 +15,17 @@
 
 After clone this repo
 
+```
+  cd project_name
+```
+
+> Note: Run all in one
+
+```
+yarn dev
+```
+>If you want run single service:
+
 1. Run posts service
 
 ```

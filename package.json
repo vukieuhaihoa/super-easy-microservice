@@ -1,0 +1,14 @@
+{
+  "name": "mini-microservice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vukieuhaihoa/super-easy-microservice.git",
+  "author": "Hai Hoa <vukieuhaihoa@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^7.2.2"
+  },
+  "scripts": {
+    "dev": "concurrently \"cd blog && yarn dev\" \"cd posts && yarn dev\" \"cd comments && yarn dev\" \"cd query && yarn dev\" \"cd event-bus && yarn dev\" \"cd moderation && yarn dev\""
+  }
+}

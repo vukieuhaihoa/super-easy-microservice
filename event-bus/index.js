@@ -24,13 +24,29 @@ const URL_COMMENT_SERVICE = 'http://localhost:3002/events';
 const URL_QUERY_SERVICE = 'http://localhost:3003/events';
 const URL_MODERATION_SERVICE = 'http://localhost:3004/events';
 
-app.post('/events', async (req, res) => {
-  const event = req.body
+const events = [];
 
-  await axios.post(URL_POST_SERVICE, event)
-  await axios.post(URL_COMMENT_SERVICE, event)
-  await axios.post(URL_QUERY_SERVICE, event)
-  await axios.post(URL_MODERATION_SERVICE, event)
+app.get('/events', (req, res) => {
+  res.send(events)
+})
+
+app.post('/events', (req, res) => {
+  const event = req.body;
+
+  events.push(event);
+
+  axios.post(URL_POST_SERVICE, event).catch((err) => {
+    console.log(err.message);
+  });
+  axios.post(URL_COMMENT_SERVICE, event).catch((err) => {
+    console.log(err.message);
+  });
+  axios.post(URL_QUERY_SERVICE, event).catch((err) => {
+    console.log(err.message);
+  });
+  axios.post(URL_MODERATION_SERVICE, event).catch((err) => {
+    console.log(err.message);
+  });
 
 
   res.status(httpStatusCode.OK).json({

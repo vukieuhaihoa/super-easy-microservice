@@ -21,6 +21,7 @@ const PORT = process.env.PORT || 3003
 const URL_POST_SERVICE = 'http://localhost:3001/events';
 const URL_COMMENT_SERVICE = 'http://localhost:3002/events';
 const URL_QUERY_SERVICE = 'http://localhost:3003/events';
+const URL_EVENTBUS = 'http://localhost:4000/events';
 
 // memory db
 const posts = {}
@@ -46,10 +47,8 @@ app.get('/posts', (req, res) => {
   })
 })
 
-
-app.post('/events', (req, res) => {
-  const data = req.body;
-
+const handleConsumerEvent = (data) => {
+  console.log(data.type);
   if (data.type === 'PostCreated') {
     const { id, content } = data.data;
     posts[id] = {
@@ -77,8 +76,15 @@ app.post('/events', (req, res) => {
     const comment = listOldComments.find(comment => comment.id === id);
     comment.status = status;
     comment.content = content;
-
   }
+}
+
+
+
+app.post('/events', (req, res) => {
+  const data = req.body;
+
+  handleConsumerEvent(data)
 
   console.log('query sv ', posts);
 
@@ -88,6 +94,12 @@ app.post('/events', (req, res) => {
   });
 })
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log("event-bus is running on port ", PORT);
+
+  // Loading missing event
+  const res = await axios.get(URL_EVENTBUS);
+  for (let event of res.data) {
+    handleConsumerEvent(event)
+  }
 })
