@@ -1,22 +1,7 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './list_comments.module.scss';
 
-const URL = 'http://localhost:3002/posts/';
-
 const ListComments = ({ comments }: { comments: Object }) => {
-  // const [comments, setComments] = useState({});
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const real_url = URL + post_id + '/comments';
-  //     const res = await axios.get(real_url);
-  //     setComments(res.data.data);
-  //   };
-
-  //   fetchData();
-  // }, []);
-
   const renderListComments = Object.values(comments).map(
     (comment: any, index) => {
       let content = comment.content;

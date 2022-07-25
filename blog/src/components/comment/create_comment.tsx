@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { FormEvent, useState } from 'react';
 import styles from './create_comment.module.scss';
 
-const URL = 'http://localhost:3002/posts/';
+const URL = 'http://posts.com/posts/';
 
 const CreateComment = ({ post_id }: { post_id: string }) => {
   const [content, setContent] = useState('');

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moderations-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: moderations-service # cai nay cuc ky quan trong, no se quan ly tat ca cac thang co label app: posts-service
+  template: # cai nay dinh nghia cho mot pod ma deployment se quan ly
+    metadata:
+      labels:
+        app: moderations-service # day ne
+    spec:
+      containers:
+        - name: moderations-service
+          image: haihoanguci/moderation_service
+          # resources:
+          #   limits:
+          #     memory: "128Mi"
+          #     cpu: "500m"
+          ports:
+            - containerPort: 3004
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: moderations-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: moderations-service
+  ports:
+    - name: moderations-clusterip-srv
+      protocol: TCP
+      port: 3004
+      targetPort: 3004

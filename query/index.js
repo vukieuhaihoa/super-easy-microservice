@@ -18,10 +18,12 @@ app.use(morgan('dev'))
 app.use(cors())
 
 const PORT = process.env.PORT || 3003
-const URL_POST_SERVICE = 'http://localhost:3001/events';
-const URL_COMMENT_SERVICE = 'http://localhost:3002/events';
-const URL_QUERY_SERVICE = 'http://localhost:3003/events';
-const URL_EVENTBUS = 'http://localhost:4000/events';
+// const URL_POST_SERVICE = 'http://localhost:3001/events';
+// const URL_COMMENT_SERVICE = 'http://localhost:3002/events';
+// const URL_QUERY_SERVICE = 'http://localhost:3003/events';
+// const URL_EVENTBUS = 'http://localhost:4000/events';
+
+const URL_EVENTBUS = 'http://event-bus-srv:4000/events';
 
 // memory db
 const posts = {}

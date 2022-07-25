@@ -27,7 +27,8 @@ app.get("/ping", (req, res) => {
   })
 })
 
-const URL_EVENTBUS = 'http://localhost:4000/events';
+// const URL_EVENTBUS = 'http://localhost:4000/events';
+const URL_EVENTBUS = 'http://event-bus-srv:4000/events';
 
 
 app.post("/events", async (req, res) => {

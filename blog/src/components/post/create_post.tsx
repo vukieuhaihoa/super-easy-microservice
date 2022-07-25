@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { FormEvent, useState } from 'react';
 import styles from './create_post.module.scss';
 
-const URL = 'http://localhost:3001/posts';
+const URL = 'http://posts.com/posts/create';
 
 const CreatePost = () => {
   const [content, setContent] = useState('');

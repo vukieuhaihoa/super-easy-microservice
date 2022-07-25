@@ -30,9 +30,10 @@ app.get("/ping", (req, res) => {
   })
 })
 
-const URL_EVENTBUS = 'http://localhost:4000/events';
+// const URL_EVENTBUS = 'http://localhost:4000/events';
+const URL_EVENTBUS = 'http://event-bus-srv:4000/events';
 
-app.post("/posts", async (req, res) => {
+app.post("/posts/create", async (req, res) => {
   const id = crypto.randomUUID()
   const { content } = req.body
   posts[id] = {
@@ -72,5 +73,6 @@ app.post("/events", (req, res) => {
 })
 
 app.listen(PORT, () => {
+  console.log('version: 0.0.1');
   console.log('posts-service is running on port', PORT);
 })

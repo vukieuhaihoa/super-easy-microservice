@@ -4,7 +4,7 @@ import CreateComment from '../comment/create_comment';
 import ListComments from '../comment/list_comments';
 import styles from './list_posts.module.scss';
 
-const URL_QUERY_SERVICE = 'http://localhost:3003/posts';
+const URL_QUERY_SERVICE = 'http://posts.com/posts';
 
 type Post = {
   id: string;

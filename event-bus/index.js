@@ -19,10 +19,15 @@ app.use(cors())
 
 
 const PORT = process.env.PORT || 4000
-const URL_POST_SERVICE = 'http://localhost:3001/events';
-const URL_COMMENT_SERVICE = 'http://localhost:3002/events';
-const URL_QUERY_SERVICE = 'http://localhost:3003/events';
-const URL_MODERATION_SERVICE = 'http://localhost:3004/events';
+// const URL_POST_SERVICE = 'http://localhost:3001/events';
+// const URL_COMMENT_SERVICE = 'http://localhost:3002/events';
+// const URL_QUERY_SERVICE = 'http://localhost:3003/events';
+// const URL_MODERATION_SERVICE = 'http://localhost:3004/events';
+
+const URL_POST_SERVICE = 'http://posts-clusterip-srv:3001/events';
+const URL_COMMENT_SERVICE = 'http://comments-clusterip-srv:3002/events';
+const URL_QUERY_SERVICE = 'http://querys-clusterip-srv:3003/events';
+const URL_MODERATION_SERVICE = 'http://moderations-clusterip-srv:3004/events';
 
 const events = [];
 
