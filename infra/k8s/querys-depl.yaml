@@ -20,7 +20,7 @@ spec:
           #     memory: "128Mi"
           #     cpu: "500m"
           ports:
-            - containerPort: 4000
+            - containerPort: 3003
 ---
 apiVersion: v1
 kind: Service
@@ -33,5 +33,5 @@ spec:
   ports:
     - name: querys-clusterip-srv
       protocol: TCP
-      port: 4000
-      targetPort: 4000
+      port: 3003
+      targetPort: 3003
